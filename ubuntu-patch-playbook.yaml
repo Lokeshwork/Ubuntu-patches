@@ -1,0 +1,15 @@
+---
+- name: Patch Ubuntu Servers
+  hosts: your_target_hosts
+  become: yes 
+
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: yes
+        autoremove: yes  # Removes any unnecessary packages after upgrade
+        autoclean: yes   # Cleans the local repository of retrieved package files
